@@ -1,5 +1,5 @@
-# This is python script which modifies the config file for the video game "Rocket League" to allow for easy toggling of multi-screen settings.
-# The script detects what state the settings are in and toggles between normal settings and the multi-screen settings.
+# This is a python script which modifies the config file for the video game "Rocket League". It allows for easy toggling of multi-screen settings.
+# The script detects what state the settings are in and toggles between normal ands multi-screen settings.
 # Version 0.1
 # Date: 2016-01-01
 # Author: David Hang
@@ -8,11 +8,11 @@
 import os
 import shutil
 
-# Normal "default" settings, you need to make sure you set your game to theses and fullscreen to be on initially if you want to be able to toggle
+# normal "default" settings, you need to make sure you set your game to these and fullscreen to be on initially if you want to be able to toggle correctly.
 ResXn = "1920"
 ResYn = "1080"
 
-# Multi-screen splitscreen settings
+# multi-screen splitscreen settings
 ResXs = "3840"
 ResYs = "1080"
 
@@ -20,7 +20,7 @@ ResYs = "1080"
 from os.path import expanduser
 home = expanduser("~")
 
-# sets path to config file. Assumes default steam installation
+# sets path to config file, assumes default steam installation
 configPath = home + "\Documents\my games\Rocket League\TAGame\Config\TASystemSettings.ini"
 tmpPath = "tmp.ini"
 
@@ -31,8 +31,7 @@ except IOError:
     print "Could not open config file!"
     exit()
 
-# open tmp file to write new settings to
-
+# tries open tmp file to write new settings to
 try:
     tmp = open(tmpPath, 'w')
 except IOError:
@@ -40,7 +39,7 @@ except IOError:
     exit()
 
 
-# reads config fle line by line and changes necessary lines
+# reads config file line by line and changes necessary lines
 for line in configFile.readlines():
     if line == ("ResX=" + ResXn + "\n"):
         tmp.write("ResX=" + ResXs + "\n")
